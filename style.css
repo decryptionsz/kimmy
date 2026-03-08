@@ -1,8 +1,8 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #c33764, #1d2671); /* Romantic purple-pink */
-  color: white;
+  background: linear-gradient(135deg, #ff9ec1, #ffb6c1, #ffc0cb, #ffd1dc); /* super pink Hello Kitty pastel */
+  color: #333; /* darker text for better contrast on pink bg */
   height: 100vh;
   overflow: hidden;
 }
@@ -24,7 +24,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.5) contrast(1.1);
+  filter: brightness(0.85) contrast(1.05); /* softer, dreamier look */
 }
 
 .text-overlay {
@@ -33,29 +33,40 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.45); /* semi-transparent white for readability */
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.6);
   animation: fadeInText 2.5s ease-in-out;
+  backdrop-filter: blur(8px);
 }
 
 .text-overlay h1, .text-overlay h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 5.5rem;
+  color: #ff69b4;
   margin-bottom: 15px;
-  text-shadow: 0 6px 15px rgba(0,0,0,0.8);
+  text-shadow: 0 4px 12px rgba(255,105,180,0.7);
 }
 
-.subtitle { font-family: 'Great Vibes', cursive; font-size: 3rem; margin-top: -20px; }
+.subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #ff1493;
+  margin-top: -15px;
+}
 
 .text-overlay p {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  color: #333;
   opacity: 0.95;
-  max-width: 80%;
+  max-width: 85%;
 }
 
-.end h1 { font-size: 5.5rem; font-family: 'Great Vibes', cursive; }
-.end p { font-size: 1.6rem; margin-top: 25px; }
+.end h1 { font-size: 6rem; color: #ff1493; }
+.end p { font-size: 1.7rem; margin-top: 30px; }
 
-/* Floating hearts animation */
+/* Floating kawaii elements */
 .hearts {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
@@ -63,27 +74,29 @@ body {
 }
 .heart {
   position: absolute;
-  font-size: 2rem;
-  animation: float 8s linear infinite;
-  opacity: 0.7;
+  font-size: 3rem;
+  animation: float 12s linear infinite;
+  opacity: 0.85;
 }
 @keyframes float {
   0% { transform: translateY(100vh) rotate(0deg); }
-  100% { transform: translateY(-20vh) rotate(360deg); }
+  100% { transform: translateY(-40vh) rotate(1080deg); }
 }
 
-/* Dots and animations same as before */
+/* Dots - pink theme */
 .dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10; }
-.dot { height: 15px; width: 15px; margin: 0 8px; background: rgba(255,255,255,0.5); border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.4s; }
-.dot.active { background: #ff69b4; } /* Pink active dot */
+.dot { height: 18px; width: 18px; margin: 0 10px; background: rgba(255,182,193,0.6); border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.4s; border: 2px solid #ff69b4; }
+.dot.active { background: #ff69b4; border-color: #ff1493; }
 
-@keyframes fadeInText { from { opacity: 0; transform: translate(-50%, -60%); } to { opacity: 1; transform: translate(-50%, -50%); } }
-.fade { animation: fade 3s; }
-@keyframes fade { from { opacity: .3 } to { opacity: 1 } }
+/* Animations */
+@keyframes fadeInText { from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+.fade { animation: fade 3.5s; }
+@keyframes fade { from { opacity: .4 } to { opacity: 1 } }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .text-overlay h1, .text-overlay h2 { font-size: 3.5rem; }
-  .subtitle { font-size: 2.2rem; }
-  .end h1 { font-size: 4rem; }
+  .text-overlay h1, .text-overlay h2 { font-size: 4rem; }
+  .subtitle { font-size: 2.5rem; }
+  .end h1 { font-size: 4.5rem; }
+  .heart { font-size: 2.5rem; }
 }
